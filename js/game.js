@@ -1,7 +1,6 @@
-import { Player } from "./player.js";
-import { Bullet } from "./bullet.js";
-import { Target, BossTarget } from "./target.js";
-
+import {Player} from "./player.js";
+import {Bullet} from "./bullet.js";
+import {Target, BossTarget} from "./target.js";
 
 
 const canvas = document.getElementById("gameCanvas");
@@ -35,7 +34,9 @@ function initGame() {
 
     }
 // spawn 1 boss mỗi level
-        targets.push(new BossTarget(canvas));
+//     for (let j = 0; j <= 3; j++) {
+//         targets.push(new BossTarget(canvas));
+//     }
 }
 
 // Qua level
@@ -43,7 +44,7 @@ function nextLevel() {
     level++;
     score = 0; // reset điểm từng level
     targetScore = 100 * Math.pow(2, level - 1);
-    timeLeft = Math.max(5, 120 - (level - 1) * 3);
+    timeLeft = Math.max(5, 120 - (level - 1) * 5);
     bullets = [];
     targets = [];
 
@@ -53,7 +54,9 @@ function nextLevel() {
         targets.push(new Target(canvas));
     }
 // spawn 1 boss mỗi level
+    for (let j = 0; j <= 2; j++) {
         targets.push(new BossTarget(canvas));
+    }
 }
 
 // Đếm ngược
@@ -170,6 +173,7 @@ function update() {
 
                 if (t instanceof BossTarget) {
                     score *= 2;
+                    timeLeft += 5;
                 } else {
                     score += 20 * level;
                 }

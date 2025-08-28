@@ -27,7 +27,10 @@ canvas {
     margin: 0 auto;
     border: 3px solid #fff;
     border-radius: 8px;
-    background: #000;
+    background-image: url("Img/anh.png"); /* đường dẫn ảnh */
+    background-size: cover;
+    background-position: center;
+
 }
 
 .controls {
