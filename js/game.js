@@ -32,6 +32,7 @@ function initGame() {
     let targetCount = 5 + (level - 1) * 2;
     for (let i = 0; i < targetCount; i++) {
         targets.push(new Target(canvas));
+
     }
 // spawn 1 boss mỗi level
         targets.push(new BossTarget(canvas));
@@ -51,11 +52,8 @@ function nextLevel() {
     for (let i = 0; i < targetCount; i++) {
         targets.push(new Target(canvas));
     }
-
 // spawn 1 boss mỗi level
-    if (Math.random() < 0.8) { // tỉ lệ 50% xuất hiện
         targets.push(new BossTarget(canvas));
-    }
 }
 
 // Đếm ngược
@@ -173,7 +171,7 @@ function update() {
                 if (t instanceof BossTarget) {
                     score *= 2;
                 } else {
-                    score += 20;
+                    score += 20 * level;
                 }
 
                 // spawn lại target thường
@@ -185,14 +183,13 @@ function update() {
             }
         });
 
-// Cập nhật boss (nếu có)
+// Cập nhật boss
         targets.forEach((t) => {
             if (t instanceof BossTarget) {
                 t.update();
             }
             t.draw(ctx);
         });
-
     });
 
     // Vẽ target

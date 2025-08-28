@@ -18,7 +18,7 @@ export class BossTarget {
         this.canvas = canvas;
         this.x = Math.random() * (canvas.width - 80) + 40;
         this.y = Math.random() * (canvas.height / 2);
-        this.radius = 80;
+        this.radius = 60;
         this.speed = 0.8;
 
         this.image = new Image();

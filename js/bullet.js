@@ -5,14 +5,13 @@ export class Bullet {
         this.radius = 30;
         this.speed = 8;
 
-        // Ảnh đạn
         this.image = new Image();
         this.image.src = "Img/bullet0.png";
 
         // Vector hướng
         let dx = targetX - startX;
         let dy = targetY - startY;
-        let length = Math.sqrt(dx * dx + dy * dy) || 1; // tránh chia 0
+        let length = Math.sqrt(dx * dx + dy * dy) || 1;
         this.vx = (dx / length) * this.speed;
         this.vy = (dy / length) * this.speed;
     }

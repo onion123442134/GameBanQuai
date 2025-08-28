@@ -4,7 +4,7 @@ export class Player {
         this.x = canvas.width / 2;
         this.y = canvas.height - 60;
         this.image = new Image();
-        this.image.src = "Img/player0.png"; // thêm ảnh
+        this.image.src = "Img/player0.png";
     }
 
     draw(ctx) {
