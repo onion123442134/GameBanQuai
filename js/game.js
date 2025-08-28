@@ -7,8 +7,8 @@ import { Target, BossTarget } from "./target.js";
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = 1500;
-canvas.height = 800;
+canvas.width = 1280;
+canvas.height = 720;
 
 const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
@@ -33,12 +33,8 @@ function initGame() {
     for (let i = 0; i < targetCount; i++) {
         targets.push(new Target(canvas));
     }
-
 // spawn 1 boss mỗi level
-    if (Math.random() < 1) {
         targets.push(new BossTarget(canvas));
-    }
-
 }
 
 // Qua level
