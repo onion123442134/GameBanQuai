@@ -1,6 +1,6 @@
 /* Reset mặc định */
 * {
-    margin: 0;
+    margin: 8px;
     padding: 0;
     box-sizing: border-box;
 }
@@ -27,7 +27,7 @@ canvas {
     margin: 0 auto;
     border: 3px solid #fff;
     border-radius: 8px;
-    background-image: url("Img/anh.png"); /* đường dẫn ảnh */
+    background-image: url("Img/anh.png");
     background-size: cover;
     background-position: center;
 

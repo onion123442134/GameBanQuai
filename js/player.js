@@ -8,6 +8,6 @@ export class Player {
     }
 
     draw(ctx) {
-        ctx.drawImage(this.image, this.x - 30, this.y - 110, 100, 100);
+        ctx.drawImage(this.image, this.x - 30, this.y - 100, 100, 100);
     }
 }

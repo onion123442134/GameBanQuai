@@ -26,7 +26,7 @@ export class BossTarget {
     }
 
     update() {
-        // Boss di chuyển chậm sang 2 bên
+        // Boss di chuyển
         this.x += this.speed;
         if (this.x + this.radius > this.canvas.width || this.x - this.radius < 0) {
             this.speed *= -1;

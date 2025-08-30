@@ -7,7 +7,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 canvas.width = 1280;
-canvas.height = 720;
+canvas.height = 650;
 
 const startBtn = document.getElementById("startBtn");
 const restartBtn = document.getElementById("restartBtn");
@@ -33,10 +33,6 @@ function initGame() {
         targets.push(new Target(canvas));
 
     }
-// spawn 1 boss mỗi level
-//     for (let j = 0; j <= 3; j++) {
-//         targets.push(new BossTarget(canvas));
-//     }
 }
 
 // Qua level
@@ -77,13 +73,13 @@ function startTimer() {
     }, 1000);
 }
 
-// Game Over
+// Thua
 function gameOver() {
     gameRunning = false;
     clearInterval(timerInterval);
     restartBtn.style.display = "inline-block";
-
-    // Vẽ chữ GAME OVER ngay giữa màn hình
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //Chữ GAME OVER giữa màn
     ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -100,8 +96,9 @@ function gameOver() {
 }
 
 
-// Bắt đầu game
+// Bắt đầu
 startBtn.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // xoá toàn bộ canvas
     initGame();
     gameRunning = true;
     startBtn.style.display = "none";
@@ -112,6 +109,7 @@ startBtn.addEventListener("click", () => {
 
 // Chơi lại
 restartBtn.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // xoá toàn bộ canvas
     initGame();
     gameRunning = true;
     restartBtn.style.display = "none";
@@ -119,7 +117,7 @@ restartBtn.addEventListener("click", () => {
     update();
 });
 
-// Bắn bằng chuột
+// Bắn bằng click
 canvas.addEventListener("click", (e) => {
     if (!gameRunning) return;
 
@@ -147,7 +145,7 @@ background.src = "Img/background0.jpg";
 
 function update() {
     if (!gameRunning) return;
-
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Vẽ background
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -202,6 +200,7 @@ function update() {
     // Hiển thị thông tin
     ctx.fillStyle = "white";
     ctx.font = "24px Arial";
+    ctx.textAlign = "left";
     ctx.fillText("Level: " + level, 25, 30);
     ctx.fillText("Score: " + score + "/" + targetScore, 25, 60);
     ctx.fillText("Time: " + timeLeft + "s", 25, 90);
